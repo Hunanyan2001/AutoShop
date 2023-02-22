@@ -1,0 +1,39 @@
+﻿@model AutoShop.ViewModels.RegisterViewModel
+<h2>Registratuion New User</h2>
+<link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/js/Login.js" asp-append-version="true" />
+<body>
+    <button class="btn btn-success btn-dark" onclick="document.getElementById('id02').style.display='block'"
+            style="width:auto;">
+        Registration
+    </button>
+    <div id="id02" class="modal">
+        <form class="modal-content animate" method="post" asp-controller="Account" asp-action="Register">
+            <div asp-validation-summary="ModelOnly"></div>
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div class="container">
+                <label asp-for="Email"><b>Email</b></label>
+                <input asp-for="Email" type="text" placeholder="Enter Email" name="Email" required>
+                <span asp-validation-for="Email"></span>
+
+                <label asp-for="Year"><b>Year</b></label>
+                <input asp-for="Year" type="text" placeholder="Year" name="Year" required>
+                <span asp-validation-for="Year"></span>
+
+                <label asp-for="Password"><b>Password</b></label>
+                <input asp-for="Password" type="password" placeholder="Enter Password" name="Password" required>
+                <span asp-validation-for="Password"></span>
+
+                <label asp-for="PasswordConfirm"><b>Confirm Password</b></label>
+                <input asp-for="PasswordConfirm" type="password" placeholder="Confirm password" name="PasswordConfirm" required>
+                <span asp-validation-for="PasswordConfirm"></span>
+                <button class="btn btn-success btn-dark" type="submit">Registration</button>
+            </div>
+
+            <div class="container" style="background-color:rgb(57, 55, 55)">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-success btn-dark">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+</body>

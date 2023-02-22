@@ -1,0 +1,40 @@
+﻿@model AutoShop.ViewModels.LoginViewModel
+<link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/js/Login.js" asp-append-version="true" />
+<h2>Please click in login</h2>
+<body>
+    <button class="btn btn-success btn-dark" onclick="document.getElementById('id01').style.display='block'"
+            style="width:auto;">
+        Login
+    </button>
+    <div id="id01" class="modal">
+        <form class="modal-content animate" method="post" asp-controller="Account" asp-action="Login"
+              asp-route-returnUrl="@Model.ReturnUrl">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="~/Files/User-Profile-PNG-Picture.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label asp-for="Email"><b>Email</b></label>
+                <input asp-for="Email" type="text" placeholder="Enter Username" name="Email" required>
+                <span asp-validation-for="Email"></span>
+
+                <label asp-for="Password"><b>Password</b></label>
+                <input asp-for="Password" type="password" placeholder="Enter Password" name="Password" required>
+                <span asp-validation-for="Password"></span>
+
+                <button class="btn btn-success btn-dark"type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:rgb(57, 55, 55)">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-success btn-dark">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+</body>

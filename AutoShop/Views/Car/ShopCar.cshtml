@@ -1,0 +1,277 @@
+﻿@using AutoShop.Models;
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> _userManager
+@model AutoShop.ViewModels.CariInformationViewModel
+@{
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/statment.css" asp-append-version="true" />
+<body>
+    <div style="text-align:center">
+        <h1>Top Statment in this week</h1>
+    </div>
+    <div class="container">
+        <div class="myForm">
+            <form class="nav nav-underline myForm" method="post" asp-action="SearchCar" asp-controller="Car">
+                <ul>
+
+                    <li>
+                        <select id="typeCar" name="TypeCar" class="nav-link active ColorLink three selectSearchShop">
+                            <option value="" disabled selected hidden>Type Car</option>
+                            <option value="All">All</option>
+                            <option value="Passenger">Passenger</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Mototechnics">Mototechnics</option>
+                            <option value="SpecialTechnique">Special technique</option>
+                            <option value="Bus">Bus</option>
+                            <option value="Trailer">Trailer</option>
+                            <option value="WaterTechnology">Water technology</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select id="model" name="CarModel" class="nav-link ColorLink three selectSearchShop">
+                            <option value="" disabled selected hidden>CarModel</option>
+                            <option value="Audi">Audi</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Lada">Lada</option>
+                            <option value="Mazda">Mazda</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Skoda">Skoda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Akura">Akura</option>
+                            <option value="Daihatsu">Daihatsu</option>
+                            <option value="Datsun">Dtsun</option>
+                            <option value="Infiniti">Infiniti</option>
+                            <option value="Isuzu">Isuzu</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="Scion">Scion</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Buick">Buick</option>
+                            <option value="Cadilac">Cadilac</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Chrysler">Chrysler</option>
+                            <option value="Dodge">Dodge</option>
+                            <option value="GMC">GMC</option>
+                            <option value="Hummer">Hummer</option>
+                            <option value="Lincoln">Lincoln</option>
+                            <option value="Mercury">Mercury</option>
+                            <option value="Oldsmobile">Oldsmobile</option>
+                            <option value="Pontiac">Pontiac</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Opel">Opel</option>
+                            <option value="Porsche">Porsche</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select id="year" name="StartingYear" class="nav-link ColorLink three selectSearchShop">
+                            <option value="" disabled selected hidden>Since Year</option>
+                            <option label="2024">2024</option>
+                            <option label="2023">2023</option>
+                            <option label="2022">2022</option>
+                            <option label="2020">2020</option>
+                            <option label="2019">2019</option>
+                            <option label="2018">2018</option>
+                            <option label="2017">2017</option>
+                            <option label="2016">2016</option>
+                            <option label="2015">2015</option>
+                            <option label="2014">2014</option>
+                            <option label="2013">2013</option>
+                            <option label="2012">2012</option>
+                            <option label="2011">2011</option>
+                            <option label="2010">2010</option>
+                            <option label="2009">2009</option>
+                            <option label="2008">2008</option>
+                            <option label="2007">2007</option>
+                            <option label="2006">2006</option>
+                            <option label="2005">2005</option>
+                            <option label="2004">2004</option>
+                            <option label="2003">2003</option>
+                            <option label="2002">2002</option>
+                            <option label="2001">2001</option>
+                            <option label="2000">2000</option>
+                            <option label="1999">1999</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span class="select2-selection_rendered"></span>
+                        <select id="year" name="EndingYear" class="nav-link ColorLink three selectSearchShop">
+                            <option value="" disabled selected hidden>While</option>
+                            <option label="2024">2024</option>
+                            <option label="2023">2023</option>
+                            <option label="2022">2022</option>
+                            <option label="2020">2020</option>
+                            <option label="2019">2019</option>
+                            <option label="2018">2018</option>
+                            <option label="2017">2017</option>
+                            <option label="2016">2016</option>
+                            <option label="2015">2015</option>
+                            <option label="2014">2014</option>
+                            <option label="2013">2013</option>
+                            <option label="2012">2012</option>
+                            <option label="2011">2011</option>
+                            <option label="2010">2010</option>
+                            <option label="2009">2009</option>
+                            <option label="2008">2008</option>
+                            <option label="2007">2007</option>
+                            <option label="2006">2006</option>
+                            <option label="2005">2005</option>
+                            <option label="2004">2004</option>
+                            <option label="2003">2003</option>
+                            <option label="2002">2002</option>
+                            <option label="2001">2001</option>
+                            <option label="2000">2000</option>
+                            <option label="1999">1999</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="nav-link ColorLink three selectSearchShop" name="Transmision" id="transmision" required="">
+                            <option selected>Transmision</option>
+                            <option value="mechanical">mechanical</option>
+                            <option value="automatic">automatic</option>
+                            <option value="semi-automatic">semi-automatic</option>
+                            <option value="variator">variator</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="nav-link ColorLink three selectSearchShop" name="Wheel" id="wheel" required="">
+                            <option selected>Wheel</option>
+                            <option value="mechanical">left</option>
+                            <option value="automatic">right</option>
+                            <option value="hasChangedFromRightToLeft">Has changed from right to left</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select id="startingPrice" name="StartingPrice" class="nav-link ColorLink three selectSearchShop">
+                            <option value="" disabled selected hidden>Starting Price from dollar</option>
+                            <option label="1000$">1000</option>
+                            <option label="2000$">2000</option>
+                            <option label="3000$">3000</option>
+                            <option label="4000$">4000</option>
+                            <option label="5000$">5000</option>
+                            <option label="6000$">6000</option>
+                            <option label="7000$">7000</option>
+                            <option label="8000$">8000</option>
+                            <option label="9000$">9000</option>
+                            <option label="10000$">10000</option>
+                            <option label="11000$">11000</option>
+                            <option label="12000$">12000</option>
+                            <option label="13000$">13000</option>
+                            <option label="14000$">14000</option>
+                            <option label="15000$">15000</option>
+                            <option label="16000$">16000</option>
+                            <option label="17000$">17000</option>
+                            <option label="18000$">18000</option>
+                            <option label="19000$">19000</option>
+                            <option label="20000$">20000</option>
+                            <option label="21000$">21000 </option>
+                            <option label="22000$">22000</option>
+                            <option label="23000$">23000</option>
+                            <option label="24000$">24000</option>
+                            <option label="25000$">25000</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select id="finalPrice" name="EndingPrice" class="nav-link ColorLink three selectSearchShop">
+                            <option value="" disabled selected hidden>Final Price from dollar</option>
+                            <option label="1000$">1000</option>
+                            <option label="2000$">2000</option>
+                            <option label="3000$">3000</option>
+                            <option label="4000$">4000</option>
+                            <option label="5000$">5000</option>
+                            <option label="6000$">6000</option>
+                            <option label="7000$">7000</option>
+                            <option label="8000$">8000</option>
+                            <option label="9000$">9000</option>
+                            <option label="10000$">10000</option>
+                            <option label="11000$">11000</option>
+                            <option label="12000$">12000</option>
+                            <option label="13000$">13000</option>
+                            <option label="14000$">14000</option>
+                            <option label="15000$">15000</option>
+                            <option label="16000$">16000</option>
+                            <option label="17000$">17000</option>
+                            <option label="18000$">18000</option>
+                            <option label="19000$">19000</option>
+                            <option label="20000$">20000</option>
+                            <option label="21000$">21000</option>
+                            <option label="22000$">22000</option>
+                            <option label="23000$">23000</option>
+                            <option label="24000$">24000</option>
+                            <option label="25000$">25000</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select id="cars" name="Price" class="nav-link ColorLink three selectSearchShop">
+                            <option value="" disabled selected hidden>Other Price</option>
+                            <option label="25000$-100000$">25000$-100000$</option>
+                        </select>
+                    </li>
+                    <div class="container" style="text-align:center">
+                        <button type="submit" class="btn btn-success btn-close-white btnInDiv">Search</button>
+                    </div>
+                </ul>
+            </form>
+        </div>
+        <div class="carShowDiv container">
+            <div class="row">
+                @foreach (var car in Model.CarCategories.OrderBy(c => c.Price).Reverse().Take(5))
+                {
+                    <div class="column">
+                        <label>TypeCar:</label>
+                        <label>@car.TypeCar</label><br>
+                        <label>Model:</label>
+                        <label>@car.CarModel</label><br>
+                        <label>Year:</label>
+                        <label>@car.Year</label><br>
+                        <label>Price:</label>
+                        <label>@car.Price</label><br>
+                        <label>Description:</label>
+                        <label>@car.Description</label><br>
+                        <a href="@Url.Content(car.CarPhotos)"><img src="@Url.Content(car.CarPhotos)" height="100" width="100"></a>
+                        <div class="btnInDiv">
+                            <a asp-action="SeeMore" asp-controller="Car"
+                           asp-route-id="@car.Id" class="btn btn-light" type="submit">
+                                See More About Car
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="search-car container">
+        <div class="row">
+            @foreach (var car in Model.CarCategories.DefaultIfEmpty())
+            {
+                <div class="column">
+                    <label>TypeCar:</label>
+                    <label>@car.TypeCar</label><br>
+                    <label>Model:</label>
+                    <label>@car.CarModel</label><br>
+                    <label>Year:</label>
+                    <label>@car.Year</label><br>
+                    <label>Price:</label>
+                    <label>@car.Price</label><br>
+                    <label>Description:</label>
+                    <label>@car.Description</label><br>
+                    <a href="@Url.Content(car.CarPhotos)"><img src="@Url.Content(car.CarPhotos)" height="100" width="100"></a>
+                    <div class="btnInDiv">
+                        <a asp-action="SeeMore" asp-controller="Car"
+                       asp-route-id="@car.Id" class="btn btn-light" type="submit">
+                            See More About Car
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>

@@ -1,0 +1,63 @@
+﻿h3{
+    text-align:center;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 19%;
+    padding: 10px;
+    height: auto; /* Should be removed. Only for demonstration */
+    border: 2px solid white;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+body {
+    background-color: rgb(128, 128, 128);
+    color: white;
+}
+.colorDiv{
+    font-weight:800;
+    background-color:rgb(128,128,128);
+   /* border:1px solid rgb(58, 57, 57);*/
+}
+.btnInDiv{
+    margin-top:20px;
+    width:auto;
+}
+.selectSearchShop {
+    width: 250px;
+    background-color: rgb(210, 203, 203) ;
+}
+.carShowDiv {
+    position: absolute;
+    margin-left: 300px;
+    width: 60%;
+    font-weight: 800;  /*--alphavit size--*/
+}
+.myForm {
+    position: absolute;
+    width: 100px;
+}
+.search-car{
+    margin-left:100px;
+    margin-top:500px;
+    width:100%;
+    font-weight:800;
+}

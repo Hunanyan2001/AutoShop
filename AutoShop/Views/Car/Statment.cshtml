@@ -1,0 +1,92 @@
+﻿@using AutoShop.Models;
+@model AutoShop.ViewModels.CariInformationViewModel;
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> _userManager;
+<link rel="stylesheet" href="~/css/statment.css" asp-append-version="true" />
+
+<h3>Fill Statment</h3>
+<form class="needs-validation" asp-action="AddStatment" asp-controller="Car" enctype="multipart/form-data" method="post">
+    <div class="conteiner">
+        <label for="typeCar" class="form-label">Type Car</label>
+        <select class="form-select" name="TypeCar" id="typeCar" required="">
+            <option selected>Open this select menu</option>
+            <option value="All">All</option>
+            <option value="Passenger">Passenger</option>
+            <option value="Truck">Truck</option>
+            <option value="Mototechnics">Mototechnics</option>
+            <option value="SpecialTechnique">Special technique</option>
+            <option value="Bus">Bus</option>
+            <option value="Trailer">Trailer</option>
+            <option value="WaterTechnology">Water technology</option>
+        </select>
+        <label for="carModel" class="form-label">Car Model</label>
+        <select class="form-select" name="CarModel" id="carModel" required="">
+            <option selected>Open this select menu</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Ford">Ford</option>
+            <option value="Honda">Honda</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Kia">Kia</option>
+            <option value="Lada">Lada</option>
+            <option value="Mazda">Mazda</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Renault">Renault</option>
+            <option value="Skoda">Skoda</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Akura">Akura</option>
+            <option value="Daihatsu">Daihatsu</option>
+            <option value="Datsun">Dtsun</option>
+            <option value="Infiniti">Infiniti</option>
+            <option value="Isuzu">Isuzu</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Scion">Scion</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Buick">Buick</option>
+            <option value="Cadilac">Cadilac</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Chrysler">Chrysler</option>
+            <option value="Dodge">Dodge</option>
+            <option value="GMC">GMC</option>
+            <option value="Hummer">Hummer</option>
+            <option value="Lincoln">Lincoln</option>
+            <option value="Mercury">Mercury</option>
+            <option value="Oldsmobile">Oldsmobile</option>
+            <option value="Pontiac">Pontiac</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Opel">Opel</option>
+            <option value="Porsche">Porsche</option>
+        </select>
+        <label for="Year">Year</label>
+        <input type="text" class="form-control" id="year" name="Year" placeholder="Year">
+        <label for="Transmision">Transmision</label>
+        <select class="form-select" name="Transmision" id="transmision" required="">
+            <option selected>Transmision</option>
+            <option value="mechanical">mechanical</option>
+            <option value="automatic">automatic</option>
+            <option value="semi-automatic">semi-automatic</option>
+            <option value="variator">variator</option>
+        </select>
+        <label for="Wheel"> Wheel</label>
+        <select class="form-select" name="Wheel" id="wheel" required="">
+            <option selected>Wheel</option>
+            <option value="mechanical">left</option>
+            <option value="automatic">right</option>
+            <option value="hasChangedFromRightToLeft">Has changed from right to left</option>
+        </select>
+        <label for="Price">Price</label>
+        <input type="text" class="form-control" id="price" name="Price" placeholder="Price">
+        <label for="Description" class="form-label">Descriptiom</label>
+        <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
+        <div class="form-group">
+            <label for="CarPhotosPath" class="form-Label"></label>
+            <input type="file" for="CarPhotosPath" class="form-control" name="uploadFile" />
+            <span validation-for="CarPhotosPath" class="text-danger"></span>
+        </div>
+        <button class="w-100 btn btn-success btn-dark" type="submit">Add Statment</button>
+    </div>
+</form>

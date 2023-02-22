@@ -1,0 +1,33 @@
+﻿@using AutoShop.Models;
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> _userManager;
+@model AutoShop.ViewModels.CariInformationViewModel
+
+<link rel="stylesheet" href="~/css/statment.css" asp-append-version="true" />
+
+<div class="colorDiv container">
+    <div class="row">
+@foreach (var statment in Model.CarCategories)
+{
+    <div class="column">
+        <label>TypeCar:</label>
+        <label>@statment.TypeCar</label><br>
+        <label>Model:</label>
+        <label>@statment.CarModel</label><br>
+        <label>Year:</label>
+        <label>@statment.Year</label><br>
+        <label>Price:</label>
+        <label>@statment.Price</label><br>
+        <label>Description:</label>
+        <label>@statment.Description</label><br>
+        <a href="@Url.Content(statment.CarPhotos)"><img src="@Url.Content(statment.CarPhotos)" height="100" width="100"></a>
+        <div class="btnInDiv">
+            <a asp-action="DeleteStatment" asp-controller="Car"
+           asp-route-id="@statment.Id" class="btn btn-success btn-dark" type="submit">
+                Delete Statment
+            </a>
+        </div>
+    </div>
+}
+    </div>
+</div>
